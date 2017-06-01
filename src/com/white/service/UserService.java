@@ -32,7 +32,7 @@ public class UserService {
 		return userDAO.modifyUser(user);
 	}
 	
-	public User getUserById(String id){
+	public User getUserById(int id){
 		return userDAO.getUserById(id);
 	}
 	

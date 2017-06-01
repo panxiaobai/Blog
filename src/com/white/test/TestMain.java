@@ -11,6 +11,9 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.white.dao.UserDAO;
+import com.white.model.User;
+
 public class TestMain {
 
 	public static void main(String[] args){
@@ -40,12 +43,14 @@ public class TestMain {
         }
         */
 		
-		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
-	    //2. 根据服务注册类创建一个元数据资源集，同时构建元数据并生成应用一般唯一的的session工厂
-	    SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-
-	    /****上面是配置准备，下面开始我们的数据库操作******/
-	    Session session = sessionFactory.openSession();//从会话工厂获取一个session
+		UserDAO userDao=new UserDAO();
+		User user=new User();
+		user.setUsername("gewhrh");
+		userDao.addUser(user);
+		User u1=userDao.getUserByUsername("gewhrh");
+		User u2=userDao.getUserById(2);
+		System.out.println(u1.getUsername());
+		System.out.println(u2.getUsername());
 
 	}
 }

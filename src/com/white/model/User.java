@@ -13,7 +13,7 @@ public class User {
 	
 	@Id//声明此列为主键
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int id;
 	
 	private String username;
 	private String password;
@@ -24,10 +24,11 @@ public class User {
 	private Blog blog;
 	
 	
-	public String getId() {
+
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getUsername() {

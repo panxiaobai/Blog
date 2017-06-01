@@ -12,17 +12,22 @@ import javax.persistence.Table;
 public class Essay {
 	@Id//声明此列为主键
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int id;
 	private String title;
 	private String type;
 	private String content;
 	
 	@ManyToOne
 	private Blog blog;
-	public String getId() {
+	
+	
+	
+	
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {

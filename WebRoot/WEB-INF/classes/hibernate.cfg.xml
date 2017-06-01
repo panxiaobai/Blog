@@ -24,7 +24,7 @@
     <!-- 在控制台输出sql语句 -->
     <property name="show_sql">true</property>
     <!-- 在启动时根据配置更新数据库 -->
-    <property name="hbm2ddl.auto">create</property>
+    <property name="hbm2ddl.auto">update</property>
     
     <!-- 注册我们的实体映射类-->
     <mapping class="com.white.model.User"/>

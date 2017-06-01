@@ -20,6 +20,10 @@ public class AdminService {
 		}
 	}
 	
+	public boolean addAdmin(Admin admin){
+		return adminDAO.addAdmin(admin);
+	}
+	
 	public boolean deleteAdmin(Admin admin){
 		return adminDAO.deleteAdmin(admin);
 	}

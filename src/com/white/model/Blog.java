@@ -16,7 +16,7 @@ public class Blog {
 	
 	@Id//声明此列为主键
     @GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private int id;
 	
 	private String name;
 	private String description;
@@ -26,11 +26,22 @@ public class Blog {
 	
 	@OneToMany(mappedBy="blog")
 	private List<Essay> essays;
-	public String getId() {
+	
+	
+	
+	
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public String getName() {
 		return name;
