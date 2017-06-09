@@ -1,6 +1,7 @@
 package com.white.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,10 +21,13 @@ public class User {
 	private String name;
 	private String description;
 	
-	@OneToOne(mappedBy="user")
+	@OneToOne(mappedBy="user",fetch=FetchType.EAGER)
 	private Blog blog;
 	
 	
+	public User(){
+		
+	}
 
 	public int getId() {
 		return id;

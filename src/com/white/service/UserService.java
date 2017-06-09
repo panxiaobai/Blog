@@ -1,40 +1,46 @@
 package com.white.service;
 
 import com.white.dao.UserDAO;
+import com.white.model.Blog;
 import com.white.model.User;
 
 public class UserService {
 
-	private UserDAO userDAO=new UserDAO();
 	
-	public boolean login(User user){
-		User u=userDAO.getUserByUsername(user.getUsername());
+	public static User login(User user){
+		User u=UserDAO.getUserByUsername(user.getUsername());
 		if(u==null){
-			return false;
+			return null;
 		}else{
 			if(u.getPassword().equals(user.getPassword())){
-				return true;
+				return u;
 			}else{
-				return false;
+				return null;
 			}
 		}
 	}
 	
-	public boolean register(User user){
-		if(userDAO.getUserByUsername(user.getUsername())==null){
-			return userDAO.addUser(user);
+	public static boolean register(User user,Blog blog){
+		if(UserDAO.getUserByUsername(user.getUsername())==null){
+			return UserDAO.addUser(user)&&BlogService.addBlog(blog);
 		}else{
 			return false;
 		}
 	}
 	
-	public boolean modifyUser(User user){
-		return userDAO.modifyUser(user);
+	public static boolean modifyUser(User user){
+		return UserDAO.modifyUser(user);
 	}
 	
-	public User getUserById(int id){
-		return userDAO.getUserById(id);
+	public static User getUserById(int id){
+		return UserDAO.getUserById(id);
 	}
+	
+	public static boolean addUser(User user){
+		return UserDAO.addUser(user);
+	}
+	
+	
 	
 	
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>db</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
+  	<filter>  
+        <filter-name>struts2</filter-name>  
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>struts2</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+  
+  <!-- 
+  	<servlet>
+    	<servlet-name>userLogin</servlet-name>
+    	<servlet-class>com.white.servlet.UserLoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+    	<servlet-name>addEssay</servlet-name>
+    	<servlet-class>com.white.servlet.AddEssayServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+    	<servlet-name>modifyEssay</servlet-name>
+    	<servlet-class>com.white.servlet.ModifyEssayServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+    	<servlet-name>addUser</servlet-name>
+    	<servlet-class>com.white.servlet.AddUserServlet</servlet-class>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>addEssay</servlet-name>
+	    <url-pattern>/addEssay</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	    <servlet-name>modifyEssay</servlet-name>
+	    <url-pattern>/modifyEssay</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	    <servlet-name>userLogin</servlet-name>
+	    <url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	    <servlet-name>addUser</servlet-name>
+	    <url-pattern>/addUser</url-pattern>
+	</servlet-mapping>
+	 -->
+</web-app>

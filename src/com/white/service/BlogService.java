@@ -5,26 +5,24 @@ import com.white.model.Blog;
 import com.white.model.User;
 
 public class BlogService {
-
-	private BlogDAO blogDAO=new BlogDAO();
 	
-	public boolean addBlog(Blog blog){
-		return blogDAO.addBlog(blog);
+	public static boolean addBlog(Blog blog){
+		return BlogDAO.addBlog(blog);
 	}
 	
-	public boolean deleteBlog(Blog blog){
-		return blogDAO.addBlog(blog);
+	public static boolean deleteBlog(Blog blog){
+		return BlogDAO.addBlog(blog);
 	}
 	
-	public boolean modifyBlog(Blog blog){
-		return blogDAO.modifyBlog(blog);
+	public static boolean modifyBlog(Blog blog){
+		return BlogDAO.modifyBlog(blog);
 	}
 	
-	public Blog getBlogById(int id){
-		return blogDAO.getBlogById(id);
+	public static Blog getBlogById(int id){
+		return BlogDAO.getBlogById(id);
 	}
 	
-	public Blog getBlogByUser(User user){
-		return blogDAO.getBlogByUser(user);
+	public static Blog getBlogByUser(User user){
+		return BlogDAO.getBlogByUser(user);
 	}
 }

@@ -9,37 +9,36 @@ import com.white.model.User;
 
 public class EssayService {
 
-	private EssayDAO essayDAO=new EssayDAO();
 	
-	public boolean addEssay(Essay essay){
-		return essayDAO.addEssay(essay);
+	public static boolean addEssay(Essay essay){
+		return EssayDAO.addEssay(essay);
 	}
 	
-	public boolean deleteEssay(Essay essay){
-		return essayDAO.deleteEssay(essay);
+	public static boolean deleteEssay(Essay essay){
+		return EssayDAO.deleteEssay(essay);
 	}
 	
-	public boolean modifyEssay(Essay essay){
-		return essayDAO.modifyEssay(essay);
+	public static boolean modifyEssay(Essay essay){
+		return EssayDAO.modifyEssay(essay);
 	}
 	
-	public Essay getEssayById(int id){
-		return essayDAO.getEssayById(id);
+	public static Essay getEssayById(int id){
+		return EssayDAO.getEssayById(id);
 	}
 	
-	public Essay getEssayByTitle(String title){
-		return essayDAO.getEssayByTitle(title);
+	public static Essay getEssayByTitle(String title){
+		return EssayDAO.getEssayByTitle(title);
 	}
 	
-	public List<Essay> getEssaysByBlog(Blog blog){
-		return essayDAO.getEssaysByBlog(blog);
+	public static List<Essay> getEssaysByBlog(Blog blog){
+		return EssayDAO.getEssaysByBlog(blog);
 	}
 	
-	public List<Essay> getEssaysLikeTitle(String title){
-		return essayDAO.getEssaysLikeTitle(title);
+	public static List<Essay> getEssaysLikeTitle(String title){
+		return EssayDAO.getEssaysLikeTitle(title);
 	}
 	
-	public List<Essay> getEssaysByUser(User user){
-		return essayDAO.getEssaysByUser(user);
+	public static List<Essay> getEssaysByUser(User user){
+		return EssayDAO.getEssaysByUser(user);
 	}
 }

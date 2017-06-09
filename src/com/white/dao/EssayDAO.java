@@ -13,37 +13,37 @@ import com.white.util.MySession;
 
 public class EssayDAO {
 	
-	public Session session=MySession.session;
+	public static Session session=MySession.session;
 	
-	public boolean addEssay(Essay essay){
+	public static boolean addEssay(Essay essay){
 		Transaction tr = session.beginTransaction();
 		session.save(essay);
 		tr.commit();
 		return true;
 	}
 	
-	public boolean deleteEssay(Essay essay){
+	public static boolean deleteEssay(Essay essay){
 		Transaction tr = session.beginTransaction();
 		session.delete(essay);
 		tr.commit();
 		return true;
 	}
 	
-	public boolean modifyEssay(Essay essay){
+	public static boolean modifyEssay(Essay essay){
 		Transaction tr = session.beginTransaction();
 		session.update(essay);
 		tr.commit();
 		return true;
 	}
 	
-	public Essay getEssayById(int id){
+	public static Essay getEssayById(int id){
 		Transaction tr = session.beginTransaction();
-		Essay essay=session.load(Essay.class, id);
+		Essay essay=session.get(Essay.class, id);
 		tr.commit();
 		return essay;
 	}
 	
-	public Essay getEssayByTitle(String title){
+	public static Essay getEssayByTitle(String title){
 		Transaction tr = session.beginTransaction();
 		String hql = "from blog_essay where title=?";  
         Query query = session.createQuery(hql).setParameter(0, title);  
@@ -56,9 +56,9 @@ public class EssayDAO {
 		}
 	}
 	
-	public List<Essay> getEssaysByBlog(Blog blog){
+	public static List<Essay> getEssaysByBlog(Blog blog){
 		Transaction tr = session.beginTransaction();
-		String hql = "from blog_essay where blog=?";  
+		String hql = "from blog_essay where blog_id=?";  
         Query query = session.createQuery(hql).setParameter(0, blog.getId());  
 		List<Essay> essays=query.list();
 		tr.commit();
@@ -69,11 +69,11 @@ public class EssayDAO {
 		}
 	}
 	
-	public List<Essay> getEssaysByUser(User user){
+	public static List<Essay> getEssaysByUser(User user){
 		return null;
 	}
 	
-	public List<Essay> getEssaysLikeTitle(String title){
+	public static List<Essay> getEssaysLikeTitle(String title){
 		Transaction tr = session.beginTransaction();
 		String hql = "from blog_essay where title like ?";  
         Query query = session.createQuery(hql).setParameter(0, title);  

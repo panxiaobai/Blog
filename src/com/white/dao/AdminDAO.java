@@ -12,27 +12,27 @@ import com.white.util.MySession;
 
 public class AdminDAO {
 	
-	public Session session=MySession.session;
+	public static Session session=MySession.session;
 	
-	public boolean addAdmin(Admin admin){
+	public static boolean addAdmin(Admin admin){
 		Transaction tr = session.beginTransaction();
 		session.save(admin);
 		tr.commit();
 		return true;
 	}
 	
-	public boolean deleteAdmin(Admin admin){
+	public static boolean deleteAdmin(Admin admin){
 		return true;
 	}
 	
-	public boolean modifyAdmin(Admin admin){
+	public static boolean modifyAdmin(Admin admin){
 		Transaction tr = session.beginTransaction();
 		session.delete(admin);
 		tr.commit();
 		return true;
 	}
 	
-	public Admin getAdminByUsername(String username){
+	public static Admin getAdminByUsername(String username){
 		Transaction tr = session.beginTransaction();
 		String hql = "from blog_admin where username=?";  
         Query query = session.createQuery(hql).setParameter(0, username);  
@@ -45,7 +45,7 @@ public class AdminDAO {
 		}
 	}
 	
-	public List<Admin> getAllAdmins(){
+	public static List<Admin> getAllAdmins(){
 		Transaction tr = session.beginTransaction();
 		String hql = "from blog_admin";  
         Query query = session.createQuery(hql);  

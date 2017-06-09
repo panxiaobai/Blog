@@ -12,37 +12,38 @@ import com.white.util.MySession;
 
 public class UserDAO {
 	
-	public Session session=MySession.session;
 	
-	public boolean addUser(User user){
+	public static Session session=MySession.session;
+	
+	public static boolean addUser(User user){
 		Transaction tr = session.beginTransaction();
 		session.save(user);
 		tr.commit();
 		return true;
 	}
 	
-	public boolean deleteUser(User user){
+	public static boolean deleteUser(User user){
 		Transaction tr = session.beginTransaction();
 		session.delete(user);
 		tr.commit();
 		return true;
 	}
 	
-	public boolean modifyUser(User user){
+	public static boolean modifyUser(User user){
 		Transaction tr = session.beginTransaction();
 		session.update(user);
 		tr.commit();
 		return true;
 	}
 	
-	public User getUserById(int id){
+	public static User getUserById(int id){
 		Transaction tr = session.beginTransaction();
-		User user=session.load(User.class, id);
+		User user=session.get(User.class, id);
 		tr.commit();
 		return user;
 	}
 	
-	public User getUserByUsername(String username){
+	public static User getUserByUsername(String username){
 		Transaction tr = session.beginTransaction();
 		String hql = "from blog_user where username=?";  
         Query query = session.createQuery(hql).setParameter(0, username);  
@@ -55,7 +56,7 @@ public class UserDAO {
 		}
 	}
 	
-	public User getUserByBlog(Blog blog){
+	public static User getUserByBlog(Blog blog){
 		Transaction tr = session.beginTransaction();
 		String hql = "from blog_user where blog=?";  
         Query query = session.createQuery(hql).setParameter(0, blog.getId());  
@@ -68,7 +69,7 @@ public class UserDAO {
 		}
 	}
 	
-	public List<User> getAllUsers(){
+	public static List<User> getAllUsers(){
 		Transaction tr = session.beginTransaction();
 		String hql = "from blog_user";  
         Query query = session.createQuery(hql);  

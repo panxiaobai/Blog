@@ -3,6 +3,7 @@ package com.white.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,12 +25,14 @@ public class Blog {
 	@OneToOne
 	private User user;
 	
-	@OneToMany(mappedBy="blog")
+	@OneToMany(mappedBy="blog",fetch=FetchType.EAGER)
 	private List<Essay> essays;
 	
 	
 	
-	
+	public Blog(){
+		
+	}
 	
 	public int getId() {
 		return id;
